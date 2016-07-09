@@ -205,6 +205,9 @@ TARGET_HAS_NO_WIFI_STATS := true
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 TARGET_USES_INTERACTION_BOOST := true
 
+# Power
+TARGET_POWERHAL_VARIANT := none
+
 # RIL
 # TARGET_RIL_VARIANT := caf
 
