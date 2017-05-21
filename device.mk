@@ -203,7 +203,8 @@ PRODUCT_PACKAGES += \
 
 # Device
 PRODUCT_PACKAGES += \
-    DeviceParts
+    DeviceParts \
+    OneplusDoze
 
 # Display/Graphics
 PRODUCT_PACKAGES += \
