@@ -246,7 +246,7 @@ PRODUCT_PACKAGES += \
 
 # Doze mode
 PRODUCT_PACKAGES += \
-    OneplusThreeDoze
+    OneplusDoze
 
 # Spectrum
 PRODUCT_PACKAGES += \
