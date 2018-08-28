@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2018 The ArrowOS Project
+     Copyright (C) 2018 LiquidRemix
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,5 +15,11 @@
      limitations under the License.
 -->
 <resources>
+
+    <!-- Whether the always on display mode is available. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+
+    <!-- Whether the display blanks itself when transition from a doze to a non-doze state -->
+    <bool name="config_displayBlanksAfterDoze">true</bool>
 
 </resources>
