@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2015 The CyanogenMod Project
- *               2017-2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.doze;
+package com.custom.ambient.display;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -30,13 +29,13 @@ public class DozeService extends Service {
     private static final boolean DEBUG = false;
 
     private ProximitySensor mProximitySensor;
-    private PickupSensor mPickupSensor;
+    private TiltSensor mTiltSensor;
 
     @Override
     public void onCreate() {
         if (DEBUG) Log.d(TAG, "Creating service");
         mProximitySensor = new ProximitySensor(this);
-        mPickupSensor = new PickupSensor(this);
+        mTiltSensor = new TiltSensor(this);
 
         IntentFilter screenStateFilter = new IntentFilter(Intent.ACTION_SCREEN_ON);
         screenStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
@@ -55,7 +54,7 @@ public class DozeService extends Service {
         super.onDestroy();
         this.unregisterReceiver(mScreenStateReceiver);
         mProximitySensor.disable();
-        mPickupSensor.disable();
+        mTiltSensor.disable();
     }
 
     @Override
@@ -66,7 +65,7 @@ public class DozeService extends Service {
     private void onDisplayOn() {
         if (DEBUG) Log.d(TAG, "Display on");
         if (Utils.pickUpEnabled(this)) {
-            mPickupSensor.disable();
+            mTiltSensor.disable();
         }
         if (Utils.handwaveGestureEnabled(this) ||
                 Utils.pocketGestureEnabled(this)) {
@@ -77,7 +76,7 @@ public class DozeService extends Service {
     private void onDisplayOff() {
         if (DEBUG) Log.d(TAG, "Display off");
         if (Utils.pickUpEnabled(this)) {
-            mPickupSensor.enable();
+            mTiltSensor.enable();
         }
         if (Utils.handwaveGestureEnabled(this) ||
                 Utils.pocketGestureEnabled(this)) {
