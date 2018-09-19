@@ -32,6 +32,11 @@ on boot
     write /sys/kernel/msm_thermal/zone3 "729600 729600 65 63"
     write /sys/kernel/msm_thermal/enabled 1
 
+    # Set I/O Scheduler tweaks
+    write /sys/block/sda/queue/scheduler maple
+    write /sys/block/sda/queue/read_ahead_kb 512
+    write /sys/block/sda/queue/iosched/fifo_batch 16
+
 on enable-low-power
     # Enable Adaptive LMK
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
@@ -166,6 +171,7 @@ on property:init.svc.recovery=running
     trigger enable-low-power
 
 on property:sys.boot_completed=1
+    setprop sys.io.scheduler "maple"
     trigger enable-low-power
 
 on property:sys.perf.profile=0
