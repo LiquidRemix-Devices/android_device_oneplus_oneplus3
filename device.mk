@@ -210,6 +210,10 @@ PRODUCT_PACKAGES += \
     com.quicinc.cne \
     services-ext
 
+# Device
+PRODUCT_PACKAGES += \
+    DeviceParts
+
 # Display/Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8996 \
@@ -497,6 +501,3 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
-
-# Inherit from oppo-common
-$(call inherit-product, device/oppo/common/common.mk)
