@@ -24,15 +24,15 @@
                 android:targetClass="org.omnirom.device.GestureSettingsActivity" />
     </Preference>
 
-    <!--Preference
+    <Preference
         android:key="doze_category"
         android:title="@string/doze_category_title"
         android:summary="@string/doze_category_summary"
         android:persistent="false" >
         <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="org.omnirom.device"
-                android:targetClass="org.omnirom.device.DozeSettingsActivity" />
-    </Preference-->
+                android:targetPackage="com.custom.ambient.display"
+                android:targetClass="com.custom.ambient.display.DozeSettings" />
+    </Preference>
 
     <PreferenceCategory
         android:title="@string/category_slider">
